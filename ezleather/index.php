@@ -13,7 +13,7 @@ session_start();
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url('leatherbg.jpg') no-repeat center center/cover;
+            background: url('assets/leatherbg.jpg') no-repeat center center/cover;
             color: white;
             text-align: center;
             scroll-behavior: smooth;
@@ -56,19 +56,6 @@ session_start();
             background-color: #e0a800;
             color: white;
         }
-        .btn-guest {
-            background-color: #6c757d;
-            color: white;
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            border-radius: 30px;
-            transition: 0.3s;
-            margin: 10px;
-        }
-        .btn-guest:hover {
-            background-color: #5a6268;
-            color: white;
-        }
         .navbar {
             background: rgba(0, 0, 0, 0.8);
         }
@@ -80,17 +67,35 @@ session_start();
         .navbar a:hover {
             color: #ffc107;
         }
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+        }
+        .hero-text {
+            flex: 1;
+            max-width: 500px;
+        }
+        .hero-card {
+            flex: 1;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .hero-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
         section {
             padding: 150px 20px;
             background: rgba(0, 0, 0, 0.8);
             color: white;
             text-align: center;
-        }
-        #about {
-            margin-top: 300px;
-        }
-        #contact {
-            margin-top: 1px;
         }
         footer {
             background: rgba(0, 0, 0, 0.8);
@@ -113,10 +118,8 @@ session_start();
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -125,12 +128,19 @@ session_start();
     <!-- Hero Section -->
     <div class="overlay"></div>
     <div class="container hero-content" id="home">
-        <h1>Welcome to EZ Leather Bar</h1>
-        <p>Premium Leather Keychains & Bag Tags - Crafted Just for You</p>
-        <div>
-            <a href="login.php" class="btn btn-custom">Get Started</a>  
-            <a href="guest.php" class="btn btn-custom">Guest</a>
-            <a href="signup.php" class="btn btn-custom">Sign Up</a>
+        <div class="hero-section">
+            <div class="hero-text">
+                <h1>Welcome to EZ Leather Bar</h1>
+                <p>Premium Leather Keychains & Bag Tags - Crafted Just for You</p>
+                <div>
+                    <a href="login.php" class="btn btn-custom">Get Started</a>  
+                    <a href="guest.php" class="btn btn-custom">Guest</a>
+                    <a href="signup.php" class="btn btn-custom">Sign Up</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <img src="assets/logo2.jpg" alt="Leather Keychains">
+            </div>
         </div>
     </div>
 
@@ -145,9 +155,9 @@ session_start();
     <!-- Contact Us Section -->
     <section id="contact">
         <h2>Contact Us</h2>
-        <p>Email: support@ezleatherbar.com</p>
-        <p>Phone: +1 234 567 890</p>
-        <p>Visit us at: 123 Leather Street, NY</p>
+        <p>Email: ezleatherbar@gmail.com</p>
+        <p>Phone: +63 952 631 3663</p>
+        <p>Visit us at: Cambridge,Iponan, CDO</p>
     </section>
 
     <!-- Footer -->

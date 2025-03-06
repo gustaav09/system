@@ -15,11 +15,11 @@ session_start();
             font-family: Arial, sans-serif;
             background: url('leatherbg.jpg') no-repeat center center/cover;
             color: white;
-            text-align: center;
             min-height: 100vh;
+            position: relative;
         }
         .overlay {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.75);
             position: absolute;
             top: 0;
             left: 0;
@@ -29,46 +29,35 @@ session_start();
         .container {
             position: relative;
             z-index: 2;
-            padding-top: 100px;
+            text-align: center;
+            padding-top: 120px;
         }
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
+            margin-bottom: 20px;
         }
         p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
         }
-        .btn-custom {
-            background-color: #ffc107;
-            color: black;
-            padding: 12px 25px;
-            font-size: 1.1rem;
+        .btn-custom, .btn-login {
+            font-size: 1.2rem;
+            padding: 15px 30px;
             border-radius: 30px;
-            transition: 0.3s;
+            transition: transform 0.2s ease;
             margin: 10px;
         }
-        .btn-custom:hover {
-            background-color: #e0a800;
-            color: white;
+        .btn-custom:hover, .btn-login:hover {
+            transform: scale(1.05);
         }
-        .btn-login {
-            background-color: #17a2b8;
-            color: white;
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            border-radius: 30px;
-            transition: 0.3s;
-            margin: 10px;
-        }
-        .btn-login:hover {
-            background-color: #138496;
-        }
-        section {
-            padding: 50px 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            text-align: center;
-            margin-top: 50px;
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 30px;
         }
         footer {
             background: rgba(0, 0, 0, 0.8);
@@ -76,57 +65,27 @@ session_start();
             text-align: center;
             color: #ffc107;
             font-size: 1rem;
-            margin-top: 1px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">EZ Leather Bar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="signup.php">Sign Up</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Guest Welcome Section -->
     <div class="overlay"></div>
+
     <div class="container">
-        <h1>Welcome, Guest!</h1>
-        <p>You can browse our collection of leather keychains and bag tags.</p>
-        <p>For a better experience, log in or sign up to place an order.</p>
-        <a href="products.php" class="btn btn-custom">Browse Products</a>
-        <a href="login.php" class="btn btn-login">Login</a>
+        <h1>Welcome to EZ Leather Bar!</h1>
+        <p>Explore our premium collection of handcrafted leather keychains and bag tags.</p>
+        <p>Sign up for an account to access exclusive deals and seamless booking.</p>
+        
+        <div class="highlight-box">
+            <a href="products.php" class="btn btn-warning btn-custom">Browse Products</a>
+            <a href="signup.php" class="btn btn-info btn-login">Sign Up</a>
+            <a href="login.php" class="btn btn-light btn-login">Login</a>
+        </div>
     </div>
 
-    <!-- Sample Product Showcase (Optional) -->
-    <section>
-        <h2>Our Best Sellers</h2>
-        <p>Take a look at our premium leather keychains and bag tags.</p>
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <img src="keychain1.jpg" class="img-fluid rounded mb-3" alt="Leather Keychain">
-                <p>Classic Leather Keychain</p>
-            </div>
-            <div class="col-md-3">
-                <img src="keychain2.jpg" class="img-fluid rounded mb-3" alt="Leather Bag Tag">
-                <p>Personalized Bag Tag</p>
-            </div>
-        </div>
-        <a href="products.php" class="btn btn-custom mt-3">View All Products</a>
-    </section>
-
-    <!-- Footer -->
     <footer>
         <p>© 2025 EZ Leather Bar. All Rights Reserved.</p>
     </footer>

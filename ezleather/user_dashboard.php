@@ -90,15 +90,30 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 'user') {
         <h2>Welcome, <?php echo $_SESSION['username']; ?>!</h2>
         <a href="logout.php" class="btn-logout">Logout</a>
         
-        <h3 class="mt-4">Available Products</h3>
-        <div class="grid">
-            <div class="product" onclick="openModal('Leather Keychain')">
-                <img src="assets/keychains1.jpg" alt="Leather Keychain">
-                <h3>Leather Keychain</h3>
-            </div>
-            <div class="product" onclick="openModal('Personalized Bag Tag')">
-                <img src="assets/bagtags.jpg" alt="Personalized Bag Tag">
-                <h3>Personalized Bag Tag</h3>
+        <!-- Calendar Section -->
+        <h3 class="mt-4">Select Date & Time</h3>
+        <form id="dateForm">
+            <label for="bookingDate">Select Date:</label>
+            <input type="date" id="bookingDate" class="form-control" required>
+
+            <label for="bookingTime">Select Time:</label>
+            <input type="time" id="bookingTime" class="form-control" required>
+
+            <button type="button" id="proceedBtn" class="btn btn-primary mt-3" disabled onclick="showProducts()">Proceed to Booking</button>
+        </form>
+
+        <!-- Products Section (Hidden Initially) -->
+        <div id="productsSection" style="display: none;">
+            <h3 class="mt-4">Available Products</h3>
+            <div class="grid">
+                <div class="product" onclick="openModal('Leather Keychain')">
+                    <img src="assets/keychains1.jpg" alt="Leather Keychain">
+                    <h3>Leather Keychain</h3>
+                </div>
+                <div class="product" onclick="openModal('Personalized Bag Tag')">
+                    <img src="assets/bagtags.jpg" alt="Personalized Bag Tag">
+                    <h3>Personalized Bag Tag</h3>
+                </div>
             </div>
         </div>
     </div>
@@ -131,18 +146,36 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 'user') {
 </div>
 
 <script>
+    // Enable Proceed Button When Date and Time Are Selected
+    document.getElementById('bookingDate').addEventListener('input', checkDateTime);
+    document.getElementById('bookingTime').addEventListener('input', checkDateTime);
+
+    function checkDateTime() {
+        let date = document.getElementById('bookingDate').value;
+        let time = document.getElementById('bookingTime').value;
+        document.getElementById('proceedBtn').disabled = !(date && time);
+    }
+
+    // Show Products Section After Date & Time Selection
+    function showProducts() {
+        document.getElementById('productsSection').style.display = 'block';
+    }
+
+    // Open Modal for Product Selection
     function openModal(productName) {
         document.getElementById('productTitle').innerText = productName;
         let modal = new bootstrap.Modal(document.getElementById('orderModal'));
         modal.show();
     }
 
+    // Update Total Quantity
     function updateTotal() {
         let white = parseInt(document.getElementById('whiteQty').value) || 0;
         let black = parseInt(document.getElementById('blackQty').value) || 0;
         document.getElementById('totalQty').value = white + black;
     }
 
+    // Confirm Order with Minimum Quantity Check
     function confirmOrder() {
         let white = parseInt(document.getElementById('whiteQty').value) || 0;
         let black = parseInt(document.getElementById('blackQty').value) || 0;
